@@ -25,7 +25,7 @@ bibas/
 - **Colors:** Navy `#0D1B3E`, Yellow/Gold `#F0BE00`, White `#FFFFFF`, Black `#0A0A14`
 - **Font:** Poppins (Google Fonts CDN)
 - **Icons:** Font Awesome 6.5 (CDN)
-- **Logo:** `photo/logo_bibas_blue.jpeg` for light backgrounds, CSS text logo for dark backgrounds
+- **Logo:** `photo/logo_bibas_white.jpeg` for light backgrounds, CSS text logo for dark backgrounds
 
 ## Real Company Data
 

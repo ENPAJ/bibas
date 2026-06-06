@@ -227,7 +227,6 @@ p { color: var(--gray-600); line-height: 1.8; }
 .logo-mark {
   width: 46px;
   height: 46px;
-  background: var(--yellow);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
