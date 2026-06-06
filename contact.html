@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactez BIBAS — Demandez un devis, une consultation ou renseignez-vous sur nos services de sourcing Europe-Afrique. Basé à Bruxelles.">
+  <title>Contact — BIBAS International Business & Supply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-section {
+      padding: 6rem 0;
+    }
+
+    /* Quick links (ways to contact) */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .quick-link-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      text-decoration: none;
+      display: block;
+    }
+
+    .quick-link-card:hover {
+      border-color: var(--navy);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .ql-icon {
+      width: 60px; height: 60px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    .ql-icon.navy { background: rgba(13,27,62,0.07); color: var(--navy); }
+    .ql-icon.green { background: rgba(22,163,74,0.1); color: #16a34a; }
+    .ql-icon.blue { background: rgba(37,99,235,0.1); color: #2563eb; }
+
+    .quick-link-card h4 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .quick-link-card p { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 0.75rem; }
+    .ql-value { font-size: 0.9rem; font-weight: 700; color: var(--navy); }
+
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+
+    .faq-item {
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.open { border-color: var(--navy); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      gap: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font);
+    }
+
+    .faq-question span {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .faq-icon {
+      width: 28px; height: 28px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .faq-item.open .faq-icon { background: var(--yellow); color: var(--navy); transform: rotate(180deg); }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+
+    @media (max-width: 768px) {
+      .quick-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">B</div>
+          <div class="logo-text">
+            <span class="logo-name">BIBAS</span>
+            <span class="logo-tagline">International Business & Supply</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="produits.html" class="nav-link">Produits</a>
+          <a href="a-propos.html" class="nav-link">À Propos</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+          <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="nav-link">Accueil</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="produits.html" class="nav-link">Produits</a>
+    <a href="a-propos.html" class="nav-link">À Propos</a>
+    <a href="contact.html" class="nav-link active">Contact</a>
+    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grad"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i>
+          <span class="cur">Contact</span>
+        </div>
+        <div class="section-tag light"><i class="fa-solid fa-envelope"></i> Parlons-nous</div>
+        <h1 style="margin-top:0.75rem">Contactez-Nous</h1>
+        <p class="lead">Notre équipe est disponible du lundi au vendredi de 9h à 18h (CET). Réponse garantie sous 24h ouvrables.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUICK LINKS ══════════════════════ -->
+  <section class="contact-section">
+    <div class="container">
+
+      <div class="quick-links">
+        <a href="tel:+3221234567" class="quick-link-card fade-in">
+          <div class="ql-icon navy"><i class="fa-solid fa-phone"></i></div>
+          <h4>Appelez-nous</h4>
+          <p>Disponible lun–ven de 9h à 18h CET</p>
+          <div class="ql-value">+32 465 52 32 32</div>
+        </a>
+        <a href="https://wa.me/32465523232" class="quick-link-card fade-in fade-in-d1">
+          <div class="ql-icon green"><i class="fab fa-whatsapp"></i></div>
+          <h4>WhatsApp</h4>
+          <p>Répondons en moins de 2h en moyenne</p>
+          <div class="ql-value">+32 465 52 32 32</div>
+        </a>
+        <a href="mailto:contact@bibas.eu" class="quick-link-card fade-in fade-in-d2">
+          <div class="ql-icon blue"><i class="fa-solid fa-envelope"></i></div>
+          <h4>Email</h4>
+          <p>Pour devis, questions et documents</p>
+          <div class="ql-value">contact@bibas.eu</div>
+        </a>
+      </div>
+
+      <!-- ═══ MAIN CONTACT GRID ═════════════ -->
+      <div class="contact-grid">
+
+        <!-- Informations -->
+        <div>
+          <h2 class="contact-info-title">Discutons de vos besoins</h2>
+          <p class="contact-info-desc">Que vous souhaitiez un devis, des informations sur nos produits ou un partenariat — notre équipe est à votre écoute.</p>
+
+          <div class="c-info-item">
+            <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="c-text">
+              <strong>Adresse du siège</strong>
+              <p>Avenue Louise 54<br>1050 Ixelles, Bruxelles<br>Belgique</p>
+            </div>
+          </div>
+
+          <div class="c-info-item">
+            <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="c-text">
+              <strong>Email</strong>
+              <p>contact@bibas.eu<br>contact@bibas.eu</p>
+            </div>
+          </div>
+
+          <div class="c-info-item">
+            <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="c-text">
+              <strong>Téléphone</strong>
+              <p>+32 465 52 32 32<br>+32 465 52 32 32 (WhatsApp)</p>
+            </div>
+          </div>
+
+          <div class="c-info-item">
+            <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
+            <div class="c-text">
+              <strong>Horaires d'ouverture</strong>
+              <p>Lundi – Vendredi : 9h00 – 18h00 (CET)<br>Samedi : 10h00 – 14h00 (sur rendez-vous)</p>
+            </div>
+          </div>
+
+          <div class="c-info-item">
+            <div class="c-icon"><i class="fa-solid fa-building"></i></div>
+            <div class="c-text">
+              <strong>Numéro d'entreprise</strong>
+              <p>BCE 0XXX.XXX.XXX<br>TVA BEXXXXXXXXX</p>
+            </div>
+          </div>
+
+          <div class="socials-row">
+            <a href="#" class="s-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="s-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="s-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/32465523232" class="s-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="form-card fade-in">
+          <h3 class="form-card-title">Envoyez-nous un message</h3>
+          <p class="form-card-desc">Remplissez le formulaire et nous vous répondrons sous 24h ouvrables.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="firstName">Prénom <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Jean" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lastName">Nom <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Dupont" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="jean.dupont@entreprise.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Téléphone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+243 81 234 56 78">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="company">Entreprise / Organisation</label>
+                <input type="text" id="company" name="company" class="form-control" placeholder="Ma Pharmacie SARL">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="country">Pays de livraison <span class="req">*</span></label>
+                <select id="country" name="country" class="form-control" required>
+                  <option value="" disabled selected>Sélectionner un pays...</option>
+                  <optgroup label="Afrique Centrale">
+                    <option value="cd">RD Congo</option>
+                    <option value="cg">Congo Brazzaville</option>
+                    <option value="cm">Cameroun</option>
+                    <option value="ga">Gabon</option>
+                    <option value="cf">RCA</option>
+                  </optgroup>
+                  <optgroup label="Afrique de l'Ouest">
+                    <option value="ci">Côte d'Ivoire</option>
+                    <option value="sn">Sénégal</option>
+                    <option value="gh">Ghana</option>
+                    <option value="ng">Nigeria</option>
+                    <option value="ml">Mali</option>
+                    <option value="bf">Burkina Faso</option>
+                    <option value="tg">Togo</option>
+                    <option value="bj">Bénin</option>
+                    <option value="gn">Guinée</option>
+                  </optgroup>
+                  <optgroup label="Afrique de l'Est">
+                    <option value="ke">Kenya</option>
+                    <option value="rw">Rwanda</option>
+                    <option value="tz">Tanzanie</option>
+                    <option value="ug">Ouganda</option>
+                  </optgroup>
+                  <optgroup label="Afrique du Nord">
+                    <option value="ma">Maroc</option>
+                    <option value="dz">Algérie</option>
+                    <option value="tn">Tunisie</option>
+                  </optgroup>
+                  <optgroup label="Autre">
+                    <option value="other">Autre pays...</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="form-group span2">
+                <label class="form-label" for="subject">Objet de la demande <span class="req">*</span></label>
+                <select id="subject" name="subject" class="form-control" required>
+                  <option value="" disabled selected>Choisir un objet...</option>
+                  <option value="devis">Demande de devis produits</option>
+                  <option value="pharma">Produits pharmaceutiques</option>
+                  <option value="cosmetique">Produits cosmétiques</option>
+                  <option value="alimentaire">Produits alimentaires</option>
+                  <option value="equipement">Équipements médicaux / industriels</option>
+                  <option value="logistique">Logistique & expédition</option>
+                  <option value="partenariat">Proposition de partenariat</option>
+                  <option value="autre">Autre demande</option>
+                </select>
+              </div>
+              <div class="form-group span2">
+                <label class="form-label" for="message">Votre message <span class="req">*</span></label>
+                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Décrivez votre besoin : produits recherchés, quantités approximatives, destination, délai souhaité..." required></textarea>
+              </div>
+            </div>
+
+            <div style="display:flex; align-items:flex-start; gap:0.75rem; margin-bottom:1.5rem">
+              <input type="checkbox" id="consent" name="consent" required style="margin-top:3px; flex-shrink:0; accent-color:var(--navy)">
+              <label for="consent" style="font-size:0.8rem; color:var(--gray-600); cursor:pointer; line-height:1.6">
+                J'accepte que BIBAS utilise ces informations pour me recontacter concernant ma demande. Consultez notre <a href="#" style="color:var(--navy);font-weight:600">politique de confidentialité</a>.
+              </label>
+            </div>
+
+            <button type="submit" class="form-submit">
+              <i class="fa-solid fa-paper-plane"></i>
+              Envoyer ma demande
+            </button>
+          </form>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h3>Message envoyé avec succès !</h3>
+            <p>Merci pour votre message. Notre équipe vous contactera sous <strong>24 heures ouvrables</strong>. Vérifiez vos spams si vous ne recevez pas de réponse.</p>
+            <div style="margin-top:1.5rem">
+              <a href="produits.html" class="btn btn-secondary" style="display:inline-flex">
+                <i class="fa-solid fa-box-open"></i> Consulter nos produits
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /contact-grid -->
+
+      <!-- ═══ MAP ════════════════════════════ -->
+      <div style="margin-top:5rem">
+        <h3 style="text-align:center; margin-bottom:2rem;">
+          <i class="fa-solid fa-map-location-dot" style="color:var(--yellow-dark)"></i>
+          Nous sommes à Bruxelles
+        </h3>
+        <div style="border-radius:var(--radius-xl); overflow:hidden; border:2px solid var(--gray-200); height:400px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.6756834476527!2d4.358499615744753!3d50.82951667952682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c48b71a8c895%3A0xb5e9f2a7e5d0c5a0!2sAvenue%20Louise%2C%20Ixelles%2C%20Belgique!5e0!3m2!1sfr!2sFR!4v1690000000000!5m2!1sfr!2sFR"
+            width="100%" height="100%" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation BIBAS Bruxelles">
+          </iframe>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- ═══ FAQ ══════════════════════════════ -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+        <h2 class="section-title">Questions <span class="accent">fréquentes</span></h2>
+        <p class="section-desc">Tout ce que vous devez savoir avant de nous contacter.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item open">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Quel est le délai minimum pour une commande ?</span>
+            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="faq-answer">
+            Les délais varient selon le mode de transport et la disponibilité des produits. Comptez en général 3–7 jours pour un envoi aérien et 20–35 jours pour un envoi maritime. Nous fournissons toujours une estimation précise lors de votre devis.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Quelles sont les commandes minimales (MOQ) ?</span>
+            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="faq-answer">
+            Le minimum de commande dépend du produit. Pour les pharmaceutiques et cosmétiques, on peut travailler à partir de cartons de 12 unités. Pour les produits alimentaires ou industriels, les minimums sont généralement plus élevés. Contactez-nous pour un devis adapté à vos volumes.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Proposez-vous des services de dédouanement ?</span>
+            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="faq-answer">
+            Oui, nous gérons l'intégralité de la documentation douanière depuis la Belgique. Pour le dédouanement dans les pays africains, nous travaillons avec des agents locaux partenaires. Nous pouvons assurer un service DDP (Delivered Duty Paid) pour de nombreuses destinations.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Comment fonctionne le paiement ?</span>
+            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="faq-answer">
+            Nous acceptons plusieurs modes de paiement : virement bancaire SWIFT/SEPA, lettre de crédit documentaire (L/C), ou paiement anticipé. Pour les nouveaux clients, nous demandons généralement un acompte de 50% à la commande. Nous proposons également des facilités de paiement aux clients réguliers.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Puis-je faire un sourcing sur commande d'un produit non listé ?</span>
+            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="faq-answer">
+            Absolument ! C'est même notre spécialité. Si vous avez une liste de produits spécifiques — pharmaceutiques, cosmétiques, alimentaires, industriels — transmettez-nous la liste avec les quantités et nous effectuons le sourcing dans notre réseau de 200+ fournisseurs européens.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Livrez-vous dans tous les pays d'Afrique ?</span>
+            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="faq-answer">
+            Nous livrons dans plus de 30 pays africains, notamment en Afrique Centrale (RDC, Cameroun, Congo, Gabon), en Afrique de l'Ouest (Côte d'Ivoire, Sénégal, Ghana, Nigeria), en Afrique de l'Est (Kenya, Rwanda, Tanzanie) et en Afrique du Nord. Contactez-nous pour vérifier votre destination.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark" style="width:36px; height:36px; font-size:1rem;">B</div>
+            <div class="logo-text">
+              <span class="logo-name" style="font-size:1.1rem">BIBAS</span>
+              <span class="logo-tagline">International Business & Supply</span>
+            </div>
+          </a>
+          <p>Votre partenaire de confiance pour le sourcing et l'expédition entre l'Europe et l'Afrique.</p>
+          <div class="f-socials">
+            <a href="#" class="f-soc-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <div class="f-links">
+            <a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Accueil</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Services</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Produits</a>
+            <a href="a-propos.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> À Propos</a>
+            <a href="contact.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Nos Services</h5>
+          <div class="f-links">
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Sourcing Produits</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contrôle Qualité</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Expédition & Logistique</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Documentation Douanière</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <div class="f-contact-item"><i class="fa-solid fa-location-dot fi"></i><span>Avenue Louise 54<br>1050 Bruxelles, Belgique</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-envelope fi"></i><span>contact@bibas.eu</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-phone fi"></i><span>+32 465 52 32 32</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-clock fi"></i><span>Lun–Ven : 9h00 – 18h00</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="f-copy">&copy; 2024 <a href="index.html">BIBAS</a> — Bankon International Business & Supply SPRL. Tous droits réservés.</p>
+        <div class="f-legal">
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      // Open clicked if was closed
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
+
+

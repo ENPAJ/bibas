@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="À propos de BIBAS — Notre histoire, notre mission et notre équipe basée à Bruxelles, Belgique.">
+  <title>À Propos — BIBAS International Business & Supply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--yellow), rgba(240,190,0,0.1));
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+    .tl-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 4px;
+      width: 14px; height: 14px;
+      background: var(--yellow);
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--yellow);
+    }
+    .tl-year {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--yellow-dark);
+      margin-bottom: 0.3rem;
+    }
+    .tl-item h4 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .tl-item p { font-size: 0.85rem; line-height: 1.65; }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .mission-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1.5px solid var(--gray-200);
+      transition: var(--transition);
+    }
+    .mission-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: transparent; }
+    .mission-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .mission-card h3 { font-size: 1.15rem; margin-bottom: 0.65rem; }
+    .mission-card p { font-size: 0.88rem; line-height: 1.75; }
+
+    @media (max-width: 768px) {
+      .mission-grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">B</div>
+          <div class="logo-text">
+            <span class="logo-name">BIBAS</span>
+            <span class="logo-tagline">International Business & Supply</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="produits.html" class="nav-link">Produits</a>
+          <a href="a-propos.html" class="nav-link active">À Propos</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+          <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="nav-link">Accueil</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="produits.html" class="nav-link">Produits</a>
+    <a href="a-propos.html" class="nav-link active">À Propos</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grad"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i>
+          <span class="cur">À Propos</span>
+        </div>
+        <div class="section-tag light"><i class="fa-solid fa-building"></i> Notre entreprise</div>
+        <h1 style="margin-top:0.75rem">À Propos de BIBAS</h1>
+        <p class="lead">Depuis Bruxelles, nous connectons l'excellence industrielle européenne aux marchés en pleine croissance d'Afrique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STORY ════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="about-story-grid">
+
+        <div class="about-img-wrap fade-in" style="display:block">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format&fit=crop" alt="Équipe BIBAS">
+          <div class="about-badge">
+            <div class="ab-val">2009</div>
+            <div class="ab-lbl">Fondée à Bruxelles</div>
+          </div>
+        </div>
+
+        <div>
+          <img src="photo/logo_bibas_blue.jpeg" alt="Logo BIBAS" style="height:72px; width:auto; object-fit:contain; margin-bottom:1.5rem;">
+          <div class="section-tag"><i class="fa-solid fa-book-open"></i> Notre Histoire</div>
+          <h2 style="margin-top:0.75rem">Une passion pour<br><span style="color:var(--yellow-dark)">le commerce Europe-Afrique</span></h2>
+          <p style="margin:1.25rem 0;">BIBAS — <em>Bankon International Business And Supply</em> — est une société belge basée à Bruxelles spécialisée dans le sourcing international et la coordination logistique Europe → Afrique.</p>
+          <p style="margin-bottom:1.75rem;"><strong>Nous opérons sans stockage :</strong> chaque commande est achetée sur demande, préparée avec soin et conditionnée pour un transport sécurisé et optimisé. Flexibilité, réactivité et transparence sont au cœur de notre engagement.</p>
+
+          <div class="about-checks">
+            <div class="about-check"><i class="fa-solid fa-circle-check"></i> Siège social à Bruxelles, Belgique</div>
+            <div class="about-check"><i class="fa-solid fa-circle-check"></i> Bureaux de représentation au Congo, Côte d'Ivoire et Cameroun</div>
+            <div class="about-check"><i class="fa-solid fa-circle-check"></i> 500+ clients actifs dans 30+ pays africains</div>
+            <div class="about-check"><i class="fa-solid fa-circle-check"></i> Membre de la Chambre de Commerce Belgo-Africaine</div>
+          </div>
+
+          <div style="margin-top:2rem">
+            <a href="contact.html" class="btn btn-secondary">
+              <i class="fa-solid fa-paper-plane"></i> Travailler avec nous
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MISSION / VISION / VALEURS ═══════ -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-bullseye"></i> Notre ADN</div>
+        <h2 class="section-title">Mission, Vision & <span class="accent">Valeurs</span></h2>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card fade-in">
+          <div class="mission-icon">🎯</div>
+          <h3>Notre Mission</h3>
+          <p>Faciliter l'accès des professionnels africains aux meilleurs produits européens — en garantissant qualité, conformité réglementaire et prix compétitifs à chaque commande.</p>
+        </div>
+        <div class="mission-card fade-in fade-in-d1">
+          <div class="mission-icon">🌍</div>
+          <h3>Notre Vision</h3>
+          <p>Devenir le pont commercial de référence entre l'Europe et l'Afrique, contribuant au développement économique du continent africain par un approvisionnement fiable et durable.</p>
+        </div>
+        <div class="mission-card fade-in">
+          <div class="mission-icon">🤝</div>
+          <h3>Intégrité</h3>
+          <p>Transparence totale dans nos pratiques commerciales. Chaque client reçoit une information complète sur les produits, les prix et les délais, sans surprise ni coût caché.</p>
+        </div>
+        <div class="mission-card fade-in fade-in-d1">
+          <div class="mission-icon">⭐</div>
+          <h3>Excellence</h3>
+          <p>Nous ne sourceons que des produits conformes aux normes les plus strictes. La qualité n'est pas négociable — c'est notre promesse à chacun de nos clients.</p>
+        </div>
+        <div class="mission-card fade-in">
+          <div class="mission-icon">💡</div>
+          <h3>Innovation</h3>
+          <p>Nous investissons continuellement dans la technologie pour améliorer le suivi, la communication et l'efficacité de notre chaîne d'approvisionnement.</p>
+        </div>
+        <div class="mission-card fade-in fade-in-d1">
+          <div class="mission-icon">🌱</div>
+          <h3>Responsabilité</h3>
+          <p>Nous privilégions des fournisseurs engagés dans des pratiques durables et éthiques, contribuant à un commerce international responsable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TIMELINE ══════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-timeline"></i> Notre Parcours</div>
+        <h2 class="section-title">15 ans de <span class="accent">croissance</span></h2>
+        <p class="section-desc">De start-up bruxelloise à acteur majeur du commerce Europe-Afrique.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item fade-in">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2009</div>
+          <h4>Fondation à Bruxelles</h4>
+          <p>Création de BIBAS avec une équipe de 3 personnes et une vision claire : simplifier le commerce entre l'Europe et l'Afrique.</p>
+        </div>
+        <div class="tl-item fade-in">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2012</div>
+          <h4>Premiers 100 clients africains</h4>
+          <p>Expansion vers la RD Congo, le Cameroun et la Côte d'Ivoire. Ouverture du premier bureau de représentation à Kinshasa.</p>
+        </div>
+        <div class="tl-item fade-in">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2015</div>
+          <h4>Spécialisation pharmaceutique</h4>
+          <p>Obtention des certifications nécessaires pour le commerce de médicaments. Partenariats avec des fabricants pharmaceutiques européens majeurs.</p>
+        </div>
+        <div class="tl-item fade-in">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2018</div>
+          <h4>Expansion cosmétiques & alimentaire</h4>
+          <p>Diversification du catalogue avec les gammes cosmétiques et alimentaires. Réseau de 150+ fournisseurs certifiés.</p>
+        </div>
+        <div class="tl-item fade-in">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2021</div>
+          <h4>Digitalisation & Tracking temps réel</h4>
+          <p>Déploiement d'un système de suivi digital de toutes les expéditions. 300+ clients actifs dans 25 pays africains.</p>
+        </div>
+        <div class="tl-item fade-in">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024</div>
+          <h4>Leader reconnu Europe-Afrique</h4>
+          <p>500+ clients, 30+ pays, 200+ fournisseurs partenaires. BIBAS s'impose comme référence du sourcing européen pour l'Afrique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═════════════════════════════ -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card fade-in">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-number"><span class="count-up" data-count="500">0</span><span class="plus">+</span></div>
+          <div class="stat-label">Clients actifs</div>
+        </div>
+        <div class="stat-card fade-in fade-in-d1">
+          <div class="stat-icon"><i class="fa-solid fa-globe-africa"></i></div>
+          <div class="stat-number"><span class="count-up" data-count="30">0</span><span class="plus">+</span></div>
+          <div class="stat-label">Pays couverts</div>
+        </div>
+        <div class="stat-card fade-in fade-in-d2">
+          <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div class="stat-number"><span class="count-up" data-count="200">0</span><span class="plus">+</span></div>
+          <div class="stat-label">Fournisseurs partenaires</div>
+        </div>
+        <div class="stat-card fade-in fade-in-d3">
+          <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="stat-number"><span class="count-up" data-count="98">0</span><span class="plus">%</span></div>
+          <div class="stat-label">Taux de satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ════════════════════ -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-award"></i> Certifications & Conformité</div>
+        <h2 class="section-title">Notre engagement <span class="accent">qualité</span></h2>
+        <p class="section-desc">Certifiés et conformes aux standards internationaux pour vous garantir la meilleure qualité.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card fade-in">
+          <div class="value-icon">🏆</div>
+          <h4>ISO 9001:2015</h4>
+          <p>Système de management de la qualité certifié pour tous nos processus de sourcing et contrôle qualité.</p>
+        </div>
+        <div class="value-card fade-in fade-in-d1">
+          <div class="value-icon">⚕️</div>
+          <h4>GMP Pharmaceutique</h4>
+          <p>Conformité aux Bonnes Pratiques de Fabrication pour la manipulation et le transport de médicaments.</p>
+        </div>
+        <div class="value-card fade-in fade-in-d2">
+          <div class="value-icon">🌿</div>
+          <h4>Cosmos Natural</h4>
+          <p>Certification pour nos gammes de produits cosmétiques naturels et biologiques sourcés en Europe.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="value-icon">📦</div>
+          <h4>INCO 2020</h4>
+          <p>Conformité aux règles Incoterms 2020 pour toutes nos expéditions internationales.</p>
+        </div>
+        <div class="value-card fade-in fade-in-d1">
+          <div class="value-icon">🛡️</div>
+          <h4>Chambre de Commerce</h4>
+          <p>Membre actif de la Chambre de Commerce Belgo-Africaine et de la Fédération des Entreprises de Belgique.</p>
+        </div>
+        <div class="value-card fade-in fade-in-d2">
+          <div class="value-icon">🔒</div>
+          <h4>RGPD Conforme</h4>
+          <p>Protection des données clients conforme au Règlement Général sur la Protection des Données (RGPD).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ════════════════════════════════ -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <div class="section-tag light" style="margin:0 auto 1.25rem"><i class="fa-solid fa-handshake"></i> Devenons partenaires</div>
+        <h2>Rejoignez les 500+ entreprises<br>qui nous font confiance</h2>
+        <p>Demandez une consultation gratuite et découvrez comment BIBAS peut transformer votre approvisionnement.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Nous contacter</a>
+          <a href="produits.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-box-open"></i> Voir nos produits</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark" style="width:36px; height:36px; font-size:1rem;">B</div>
+            <div class="logo-text">
+              <span class="logo-name" style="font-size:1.1rem">BIBAS</span>
+              <span class="logo-tagline">International Business & Supply</span>
+            </div>
+          </a>
+          <p>Votre partenaire de confiance pour le sourcing et l'expédition entre l'Europe et l'Afrique.</p>
+          <div class="f-socials">
+            <a href="#" class="f-soc-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <div class="f-links">
+            <a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Accueil</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Services</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Produits</a>
+            <a href="a-propos.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> À Propos</a>
+            <a href="contact.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Nos Services</h5>
+          <div class="f-links">
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Sourcing Produits</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contrôle Qualité</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Expédition & Logistique</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Documentation Douanière</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <div class="f-contact-item"><i class="fa-solid fa-location-dot fi"></i><span>Avenue Louise 54<br>1050 Bruxelles, Belgique</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-envelope fi"></i><span>contact@bibas.eu</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-phone fi"></i><span>+32 465 52 32 32</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-clock fi"></i><span>Lun–Ven : 9h00 – 18h00</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="f-copy">&copy; 2024 <a href="index.html">BIBAS</a> — Bankon International Business & Supply SPRL. Tous droits réservés.</p>
+        <div class="f-legal">
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-chevron-up"></i></button>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Services BIBAS — Sourcing, contrôle qualité, logistique, documentation douanière et conseil import/export entre l'Europe et l'Afrique.">
+  <title>Nos Services — BIBAS International Business & Supply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .svc-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+    .svc-detail-grid.reverse { direction: rtl; }
+    .svc-detail-grid.reverse > * { direction: ltr; }
+
+    .svc-detail-img img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+    }
+
+    .svc-detail-content .section-tag { text-align: left; }
+    .svc-detail-content h2 { margin-bottom: 1rem; }
+    .svc-detail-content p { margin-bottom: 1.5rem; }
+
+    .svc-detail-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .svc-detail-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--gray-800);
+    }
+    .svc-detail-list li i { color: var(--yellow-dark); margin-top: 3px; flex-shrink: 0; }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .partner-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .partner-card:hover { border-color: var(--navy); box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+    .partner-card .p-name { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
+    .partner-card .p-type { font-size: 0.72rem; color: var(--gray-600); }
+    .partner-flag { font-size: 2rem; margin-bottom: 0.5rem; }
+
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .transport-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1.5px solid var(--gray-200);
+      transition: var(--transition);
+    }
+    .transport-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: transparent; }
+    .t-icon { font-size: 3rem; color: var(--navy); margin-bottom: 1rem; }
+    .transport-card h3 { font-size: 1.1rem; margin-bottom: 0.65rem; }
+    .transport-card p { font-size: 0.85rem; }
+    .t-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(240,190,0,0.1);
+      color: var(--yellow-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .svc-detail-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .svc-detail-grid.reverse { direction: ltr; }
+      .partners-grid { grid-template-columns: repeat(3, 1fr); }
+      .transport-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+      .transport-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">B</div>
+          <div class="logo-text">
+            <span class="logo-name">BIBAS</span>
+            <span class="logo-tagline">International Business & Supply</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="services.html" class="nav-link active">Services</a>
+          <a href="produits.html" class="nav-link">Produits</a>
+          <a href="a-propos.html" class="nav-link">À Propos</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+          <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="nav-link">Accueil</a>
+    <a href="services.html" class="nav-link active">Services</a>
+    <a href="produits.html" class="nav-link">Produits</a>
+    <a href="a-propos.html" class="nav-link">À Propos</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grad"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i>
+          <span class="cur">Services</span>
+        </div>
+        <div class="section-tag light"><i class="fa-solid fa-gear"></i> Ce que nous faisons</div>
+        <h1 style="margin-top:0.75rem">Nos Services</h1>
+        <p class="lead">Des solutions intégrées de sourcing, logistique et conformité pour connecter l'Europe et l'Afrique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE 1 — SOURCING ═════════════ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="svc-detail-grid">
+        <div class="svc-detail-img fade-in">
+          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80&auto=format&fit=crop" alt="Sourcing de produits">
+        </div>
+        <div class="svc-detail-content">
+          <div class="section-tag"><i class="fa-solid fa-magnifying-glass"></i> Service 01</div>
+          <h2 style="margin-top:0.75rem">Sourcing de Produits</h2>
+          <p>Nous identifions pour vous les meilleurs fournisseurs européens, négocions les conditions et assurons la qualité des produits avant toute expédition.</p>
+          <ul class="svc-detail-list">
+            <li><i class="fa-solid fa-check-circle"></i> Identification de fournisseurs certifiés en Europe</li>
+            <li><i class="fa-solid fa-check-circle"></i> Négociation des prix et conditions contractuelles</li>
+            <li><i class="fa-solid fa-check-circle"></i> Vérification de la conformité et des certifications</li>
+            <li><i class="fa-solid fa-check-circle"></i> Catalogue de 200+ fournisseurs dans 10+ pays européens</li>
+            <li><i class="fa-solid fa-check-circle"></i> Sourcing sur mesure selon vos spécifications exactes</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Obtenir un devis</a>
+        </div>
+      </div>
+
+      <!-- ═══ SERVICE 2 — QUALITÉ ════════════ -->
+      <div class="svc-detail-grid reverse">
+        <div class="svc-detail-img fade-in">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&auto=format&fit=crop" alt="Contrôle qualité">
+        </div>
+        <div class="svc-detail-content">
+          <div class="section-tag"><i class="fa-solid fa-shield-halved"></i> Service 02</div>
+          <h2 style="margin-top:0.75rem">Contrôle Qualité</h2>
+          <p>Chaque lot est inspecté rigoureusement par nos équipes techniques avant expédition. Zéro compromis sur la qualité et la sécurité.</p>
+          <ul class="svc-detail-list">
+            <li><i class="fa-solid fa-check-circle"></i> Inspection physique et documentation des produits</li>
+            <li><i class="fa-solid fa-check-circle"></i> Vérification des certifications ISO, CE, GMP</li>
+            <li><i class="fa-solid fa-check-circle"></i> Tests de conformité selon normes OMS</li>
+            <li><i class="fa-solid fa-check-circle"></i> Contrôle des dates de péremption et conditions de stockage</li>
+            <li><i class="fa-solid fa-check-circle"></i> Rapport qualité détaillé pour chaque commande</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Obtenir un devis</a>
+        </div>
+      </div>
+
+      <!-- ═══ SERVICE 3 — LOGISTIQUE ════════ -->
+      <div class="svc-detail-grid">
+        <div class="svc-detail-img fade-in">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Logistique maritime">
+        </div>
+        <div class="svc-detail-content">
+          <div class="section-tag"><i class="fa-solid fa-ship"></i> Service 03</div>
+          <h2 style="margin-top:0.75rem">Logistique & Expédition</h2>
+          <p>Transport sécurisé par mer, air ou terre vers toute l'Afrique. Nous gérons l'ensemble de la chaîne logistique, du départ à la livraison finale.</p>
+          <ul class="svc-detail-list">
+            <li><i class="fa-solid fa-check-circle"></i> Expéditions maritimes, aériennes et terrestres</li>
+            <li><i class="fa-solid fa-check-circle"></i> Gestion des conteneurs FCL et LCL</li>
+            <li><i class="fa-solid fa-check-circle"></i> Assurance cargo complète sur toutes les expéditions</li>
+            <li><i class="fa-solid fa-check-circle"></i> Tracking en temps réel de vos cargaisons</li>
+            <li><i class="fa-solid fa-check-circle"></i> Livraison dans 30+ pays africains</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Obtenir un devis</a>
+        </div>
+      </div>
+
+      <!-- ═══ SERVICE 4 — DOCUMENTATION ═════ -->
+      <div class="svc-detail-grid reverse" style="margin-bottom:0">
+        <div class="svc-detail-img fade-in">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80&auto=format&fit=crop" alt="Documentation douanière">
+        </div>
+        <div class="svc-detail-content">
+          <div class="section-tag"><i class="fa-solid fa-file-contract"></i> Service 04</div>
+          <h2 style="margin-top:0.75rem">Gestion Documentaire & Douane</h2>
+          <p>Prise en charge complète de toute la paperasse administrative et douanière pour un passage en douane sans friction dans les pays de destination.</p>
+          <ul class="svc-detail-list">
+            <li><i class="fa-solid fa-check-circle"></i> Certificats d'origine, phytosanitaires et d'analyse</li>
+            <li><i class="fa-solid fa-check-circle"></i> Déclarations douanières d'importation et d'exportation</li>
+            <li><i class="fa-solid fa-check-circle"></i> Gestion des autorisations d'importation pharmaceutiques</li>
+            <li><i class="fa-solid fa-check-circle"></i> Coordination avec les autorités sanitaires africaines</li>
+            <li><i class="fa-solid fa-check-circle"></i> Veille réglementaire permanente par pays</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Obtenir un devis</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ TRANSPORT OPTIONS ════════════════ -->
+  <section class="section bg-off-white">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-truck-fast"></i> Modes de Transport</div>
+        <h2 class="section-title">Choisissez le transport <span class="accent">adapté</span></h2>
+        <p class="section-desc">Maritime pour les grands volumes, aérien pour l'urgence, terrestre pour les destinations continentales.</p>
+      </div>
+
+      <div class="transport-grid">
+        <div class="transport-card fade-in">
+          <div class="t-icon"><i class="fa-solid fa-ship"></i></div>
+          <h3>Maritime</h3>
+          <p>Idéal pour les grandes quantités et les produits non urgents. Option la plus économique pour les liaisons Europe-Afrique.</p>
+          <div class="t-time"><i class="fa-regular fa-clock"></i> 15 – 35 jours</div>
+        </div>
+        <div class="transport-card fade-in fade-in-d1">
+          <div class="t-icon"><i class="fa-solid fa-plane"></i></div>
+          <h3>Aérien</h3>
+          <p>Pour les commandes urgentes, les produits à haute valeur ou les volumes réduits. Délais garantis.</p>
+          <div class="t-time"><i class="fa-regular fa-clock"></i> 3 – 7 jours</div>
+        </div>
+        <div class="transport-card fade-in fade-in-d2">
+          <div class="t-icon"><i class="fa-solid fa-truck"></i></div>
+          <h3>Terrestre</h3>
+          <p>Pour les destinations accessibles par route depuis le port. Solution de dernier kilomètre incluse.</p>
+          <div class="t-time"><i class="fa-regular fa-clock"></i> Variable</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PARTENAIRES FOURNISSEURS ═════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-handshake"></i> Nos Partenaires</div>
+        <h2 class="section-title">Un réseau de <span class="accent">fournisseurs certifiés</span></h2>
+        <p class="section-desc">200+ partenaires sélectionnés dans toute l'Europe pour garantir la qualité et la fiabilité de chaque approvisionnement.</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card fade-in">
+          <div class="partner-flag">🇧🇪</div>
+          <div class="p-name">Belgique</div>
+          <div class="p-type">Pharma · Chimie · Alimentaire</div>
+        </div>
+        <div class="partner-card fade-in fade-in-d1">
+          <div class="partner-flag">🇩🇪</div>
+          <div class="p-name">Allemagne</div>
+          <div class="p-type">Équipements · Technologie · Pharma</div>
+        </div>
+        <div class="partner-card fade-in fade-in-d2">
+          <div class="partner-flag">🇫🇷</div>
+          <div class="p-name">France</div>
+          <div class="p-type">Cosmétiques · Alimentaire · Mode</div>
+        </div>
+        <div class="partner-card fade-in fade-in-d3">
+          <div class="partner-flag">🇳🇱</div>
+          <div class="p-name">Pays-Bas</div>
+          <div class="p-type">Logistique · Pharma · Chimie</div>
+        </div>
+        <div class="partner-card fade-in fade-in-d4">
+          <div class="partner-flag">🇮🇹</div>
+          <div class="p-name">Italie</div>
+          <div class="p-type">Cosmétiques · Alimentaire · Mode</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══════════════════════════════ -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <div class="section-tag light" style="margin:0 auto 1.25rem"><i class="fa-solid fa-handshake"></i> Travaillons ensemble</div>
+        <h2>Un service adapté à<br>chacun de vos besoins</h2>
+        <p>Que vous soyez pharmacien, distributeur, hôpital ou importateur — BIBAS a une solution pour vous.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Nous contacter</a>
+          <a href="produits.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-box-open"></i> Voir nos produits</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark" style="width:36px; height:36px; font-size:1rem;">B</div>
+            <div class="logo-text">
+              <span class="logo-name" style="font-size:1.1rem">BIBAS</span>
+              <span class="logo-tagline">International Business & Supply</span>
+            </div>
+          </a>
+          <p>Votre partenaire de confiance pour le sourcing et l'expédition entre l'Europe et l'Afrique.</p>
+          <div class="f-socials">
+            <a href="#" class="f-soc-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <div class="f-links">
+            <a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Accueil</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Services</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Produits</a>
+            <a href="a-propos.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> À Propos</a>
+            <a href="contact.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Nos Services</h5>
+          <div class="f-links">
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Sourcing Produits</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contrôle Qualité</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Expédition & Logistique</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Documentation Douanière</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Conseil Import/Export</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <div class="f-contact-item"><i class="fa-solid fa-location-dot fi"></i><span>Avenue Louise 54<br>1050 Bruxelles, Belgique</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-envelope fi"></i><span>contact@bibas.eu</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-phone fi"></i><span>+32 465 52 32 32</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-clock fi"></i><span>Lun–Ven : 9h00 – 18h00</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="f-copy">&copy; 2024 <a href="index.html">BIBAS</a> — Bankon International Business & Supply SPRL. Tous droits réservés.</p>
+        <div class="f-legal">
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-chevron-up"></i></button>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

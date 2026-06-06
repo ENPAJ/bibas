@@ -1,0 +1,788 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catalogue produits BIBAS — Pharmaceutiques, cosmétiques, alimentaires et équipements sourcés en Europe pour l'Afrique.">
+  <title>Nos Produits — BIBAS International Business & Supply</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Sidebar */
+    .cat-sidebar {
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: sticky;
+      top: calc(var(--header-height) + 1.5rem);
+    }
+
+    .cat-sidebar-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-600);
+      margin-bottom: 1.25rem;
+    }
+
+    .cat-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-align: left;
+      margin-bottom: 0.25rem;
+    }
+
+    .cat-btn:hover { background: var(--gray-100); color: var(--navy); }
+
+    .cat-btn.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .cat-btn .cat-count {
+      margin-left: auto;
+      background: rgba(255,255,255,0.2);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-full);
+    }
+
+    .cat-btn:not(.active) .cat-count {
+      background: var(--gray-200);
+      color: var(--gray-600);
+    }
+
+    .sidebar-divider { height: 1px; background: var(--gray-200); margin: 1.25rem 0; }
+
+    .sidebar-info-box {
+      background: rgba(240,190,0,0.07);
+      border: 1px solid rgba(240,190,0,0.2);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .sidebar-info-box h5 {
+      font-size: 0.85rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .sidebar-info-box p {
+      font-size: 0.78rem;
+      line-height: 1.6;
+      margin-bottom: 0.85rem;
+    }
+
+    /* Products count bar */
+    .products-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .prod-count {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+
+    .prod-count strong { color: var(--navy); }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-full);
+      padding: 0.55rem 1rem;
+      flex: 1;
+      max-width: 320px;
+    }
+
+    .search-bar i { color: var(--gray-600); font-size: 0.9rem; }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      font-size: 0.88rem;
+      color: var(--navy);
+      width: 100%;
+      font-family: var(--font);
+    }
+
+    .search-bar input::placeholder { color: var(--gray-400); }
+
+    /* Products grid — 3 cols in content area */
+    .products-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .category-label {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .category-label h3 {
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .category-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    /* No results */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      display: none;
+    }
+    .no-results i { font-size: 3rem; color: var(--gray-400); margin-bottom: 1rem; }
+    .no-results p { font-size: 0.95rem; color: var(--gray-600); }
+
+    @media (max-width: 1024px) {
+      .catalog-layout { grid-template-columns: 1fr; }
+      .cat-sidebar { position: static; display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1.25rem; }
+      .cat-sidebar-title { width: 100%; margin-bottom: 0.5rem; }
+      .cat-btn { width: auto; }
+      .sidebar-divider, .sidebar-info-box { display: none; }
+      .products-grid-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .products-grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header scrolled" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">B</div>
+          <div class="logo-text">
+            <span class="logo-name">BIBAS</span>
+            <span class="logo-tagline">International Business & Supply</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="produits.html" class="nav-link active">Produits</a>
+          <a href="a-propos.html" class="nav-link">À Propos</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+          <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="nav-link">Accueil</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="produits.html" class="nav-link active">Produits</a>
+    <a href="a-propos.html" class="nav-link">À Propos</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Demander un devis</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-grad"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i>
+          <span class="cur">Produits</span>
+        </div>
+        <div class="section-tag light"><i class="fa-solid fa-boxes-stacked"></i> Catalogue complet</div>
+        <h1 style="margin-top:0.75rem">Nos Produits</h1>
+        <p class="lead">Pharmaceutiques, cosmétiques, alimentaires et équipements — sourcés en Europe, livrés en Afrique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CATALOGUE ════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="catalog-layout">
+
+        <!-- Sidebar -->
+        <aside class="cat-sidebar">
+          <div class="cat-sidebar-title">Catégories</div>
+
+          <button class="cat-btn active" data-tab="all">
+            <i class="fa-solid fa-border-all"></i> Tous les produits
+            <span class="cat-count">20</span>
+          </button>
+          <button class="cat-btn" data-tab="pharma">
+            <i class="fa-solid fa-pills"></i> Pharmaceutique
+            <span class="cat-count">6</span>
+          </button>
+          <button class="cat-btn" data-tab="cosmetique">
+            <i class="fa-solid fa-spa"></i> Cosmétique
+            <span class="cat-count">6</span>
+          </button>
+          <button class="cat-btn" data-tab="alimentaire">
+            <i class="fa-solid fa-wheat-awn"></i> Alimentaire
+            <span class="cat-count">4</span>
+          </button>
+          <button class="cat-btn" data-tab="autre">
+            <i class="fa-solid fa-industry"></i> Équipements & Autres
+            <span class="cat-count">4</span>
+          </button>
+
+          <div class="sidebar-divider"></div>
+
+          <div class="sidebar-info-box">
+            <h5><i class="fa-solid fa-circle-info" style="color:var(--yellow-dark)"></i> Sur mesure</h5>
+            <p>Vous ne trouvez pas votre produit ? Nous le sourceons sur commande.</p>
+            <a href="contact.html" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center">
+              <i class="fa-solid fa-paper-plane"></i> Nous écrire
+            </a>
+          </div>
+        </aside>
+
+        <!-- Products -->
+        <div>
+          <div class="products-header">
+            <div class="prod-count">Affichage de <strong id="prodCount">20</strong> produits</div>
+            <div class="search-bar">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+            </div>
+          </div>
+
+          <div class="products-grid-3" id="productsGrid">
+
+            <!-- ══ PHARMACEUTIQUES ══ -->
+            <div class="category-label" data-category-header="pharma">
+              <i class="fa-solid fa-pills" style="color:#1d4ed8"></i>
+              <h3>Produits Pharmaceutiques</h3>
+            </div>
+
+            <div class="prod-card" data-category="pharma">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80&auto=format&fit=crop" alt="Paracétamol">
+                <span class="prod-badge pharma">Pharmaceutique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Paracétamol 500mg</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique Sub-Saharienne</div>
+                <div class="prod-desc">Analgésique et antipyrétique de qualité pharmaceutique européenne. Certifié GMP et conforme aux normes OMS.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">GMP · OMS</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="pharma">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80&auto=format&fit=crop" alt="Antibiotiques">
+                <span class="prod-badge pharma">Pharmaceutique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Amoxicilline 250mg / 500mg</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Allemagne → Afrique de l'Ouest</div>
+                <div class="prod-desc">Antibiotique à large spectre, capsules et suspension. Conditionnement pour marchés africains.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">EU Certifié</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="pharma">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?w=600&q=80&auto=format&fit=crop" alt="Vitamines">
+                <span class="prod-badge pharma">Pharmaceutique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Vitamines D3 + B12 Complexes</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Pays-Bas → Afrique</div>
+                <div class="prod-desc">Suppléments vitaminiques haute qualité. Formulations adaptées aux carences nutritionnelles africaines.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">ISO 9001</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="pharma">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&q=80&auto=format&fit=crop" alt="Matériel médical">
+                <span class="prod-badge pharma">Pharmaceutique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Matériel Chirurgical Stérile</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Hôpitaux Africains</div>
+                <div class="prod-desc">Instruments chirurgicaux stériles, gants médicaux et consommables hospitaliers certifiés CE.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Certifié CE</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="pharma">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80&auto=format&fit=crop" alt="Artéméther">
+                <span class="prod-badge pharma">Pharmaceutique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Artéméther-Luméfantrine</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique Sub-Saharienne</div>
+                <div class="prod-desc">Antipaludéen de 1ère ligne selon directives OMS. Conditionnement adulte et pédiatrique disponible.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">OMS · Paludisme</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="pharma">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80&auto=format&fit=crop" alt="Antiseptique">
+                <span class="prod-badge pharma">Pharmaceutique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Solutions Antiseptiques</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> France → Afrique Centrale</div>
+                <div class="prod-desc">Bétadine, chlorhexidine, alcool isopropylique. Gamme complète pour hôpitaux, pharmacies et cliniques.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Hôpitaux</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ COSMÉTIQUES ══ -->
+            <div class="category-label" data-category-header="cosmetique">
+              <i class="fa-solid fa-spa" style="color:#7c3aed"></i>
+              <h3>Produits Cosmétiques</h3>
+            </div>
+
+            <div class="prod-card" data-category="cosmetique">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80&auto=format&fit=crop" alt="Crème hydratante">
+                <span class="prod-badge cosmetique">Cosmétique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Crème Hydratante SPF 30</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> France → Afrique de l'Ouest</div>
+                <div class="prod-desc">Soin visage haute protection solaire formulé pour les peaux à mélanine élevée. Sans parabènes.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Naturel · SPF 30</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="cosmetique">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80&auto=format&fit=crop" alt="Sérum visage">
+                <span class="prod-badge cosmetique">Cosmétique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Sérum Anti-Âge Vitamine C</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> France → Afrique</div>
+                <div class="prod-desc">Sérum concentré à la vitamine C pure. Éclat, anti-taches et anti-rides. Résultats visibles en 4 semaines.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Premium</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="cosmetique">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop" alt="Soins capillaires">
+                <span class="prod-badge cosmetique">Cosmétique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Gamme Kératine Capillaire</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Italie → Afrique</div>
+                <div class="prod-desc">Shampoing, après-shampoing et masque kératine pour cheveux texturés. Lissage et brillance durables.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Kératine</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="cosmetique">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80&auto=format&fit=crop" alt="Maquillage">
+                <span class="prod-badge cosmetique">Cosmétique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Gamme Maquillage Peaux Foncées</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique</div>
+                <div class="prod-desc">Fond de teint, correcteur et poudres formulés spécifiquement pour les teintes profondes africaines.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Inclusif</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="cosmetique">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?w=600&q=80&auto=format&fit=crop" alt="Huile corps">
+                <span class="prod-badge cosmetique">Cosmétique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Huile Corps Bio Argan & Karité</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique</div>
+                <div class="prod-desc">Huile corps luxuriante à base d'argan et de beurre de karité bio. Nourrit et protège les peaux sèches.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Bio · Vegan</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="cosmetique">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80&auto=format&fit=crop" alt="Savons naturels">
+                <span class="prod-badge cosmetique">Cosmétique</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Savons Naturels Surgras</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> France → Afrique de l'Ouest</div>
+                <div class="prod-desc">Savons artisanaux surgras à l'huile d'olive, lavande et calendula. Certifiés Cosmos Natural.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Cosmos · Sans chimie</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ ALIMENTAIRES ══ -->
+            <div class="category-label" data-category-header="alimentaire">
+              <i class="fa-solid fa-wheat-awn" style="color:#059669"></i>
+              <h3>Produits Alimentaires</h3>
+            </div>
+
+            <div class="prod-card" data-category="alimentaire">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&auto=format&fit=crop" alt="Lait en poudre">
+                <span class="prod-badge alimentaire">Alimentaire</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Lait en Poudre Entier</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique Centrale</div>
+                <div class="prod-desc">Lait en poudre entier premium, sachet 25kg pour distributeurs et détaillants. Normes ISO 22000.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">ISO 22000</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="alimentaire">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80&auto=format&fit=crop" alt="Farine de blé">
+                <span class="prod-badge alimentaire">Alimentaire</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Farine de Blé T45 / T55</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> France → Afrique de l'Ouest</div>
+                <div class="prod-desc">Farine de blé certifiée pour boulangerie et pâtisserie. Conditionnement 1kg, 5kg, 25kg, 50kg.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Certifiée</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="alimentaire">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80&auto=format&fit=crop" alt="Huile alimentaire">
+                <span class="prod-badge alimentaire">Alimentaire</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Huile de Tournesol Premium</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Pays-Bas → Afrique</div>
+                <div class="prod-desc">Huile de tournesol raffinée haute qualité. Idéale pour friture et assaisonnement. Conditionnement vrac ou retail.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Premium</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="alimentaire">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format&fit=crop" alt="Sucre">
+                <span class="prod-badge alimentaire">Alimentaire</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Sucre Blanc Raffiné</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique Centrale</div>
+                <div class="prod-desc">Sucre raffiné de betterave, qualité industrielle et retail. Conditionnement 1kg à 50kg disponible.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Industrie · Retail</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ ÉQUIPEMENTS ══ -->
+            <div class="category-label" data-category-header="autre">
+              <i class="fa-solid fa-industry" style="color:#b45309"></i>
+              <h3>Équipements & Autres</h3>
+            </div>
+
+            <div class="prod-card" data-category="autre">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80&auto=format&fit=crop" alt="Équipements laboratoire">
+                <span class="prod-badge autre">Équipement</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Équipements de Laboratoire</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Allemagne → Afrique</div>
+                <div class="prod-desc">Microscopes, centrifugeuses, analyseurs biologiques certifiés CE pour cliniques et laboratoires africains.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Certifié CE</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="autre">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1545259742-f2d0e56e3f46?w=600&q=80&auto=format&fit=crop" alt="Hygiène">
+                <span class="prod-badge autre">Hygiène</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Produits d'Hygiène & Nettoyage</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique</div>
+                <div class="prod-desc">Détergents industriels, désinfectants surfaces, produits d'entretien pour hôpitaux, hôtels et industries.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Professionnel</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="autre">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Matériaux construction">
+                <span class="prod-badge autre">Construction</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Matériaux de Construction</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Belgique → Afrique</div>
+                <div class="prod-desc">Ciment, acier, tuiles et matériaux de construction certifiés pour projets résidentiels et commerciaux.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">BTP</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-card" data-category="autre">
+              <div class="prod-img">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80&auto=format&fit=crop" alt="Énergie solaire">
+                <span class="prod-badge autre">Énergie</span>
+              </div>
+              <div class="prod-body">
+                <div class="prod-name">Panneaux Solaires & Batteries</div>
+                <div class="prod-origin"><i class="fa-solid fa-location-dot"></i> Allemagne → Afrique</div>
+                <div class="prod-desc">Systèmes solaires photovoltaïques, batteries de stockage et accessoires pour électrification en zones isolées.</div>
+                <div class="prod-footer">
+                  <span class="prod-tag">Énergie verte</span>
+                  <a href="contact.html" class="btn btn-secondary btn-sm">Devis</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- No results message -->
+            <div class="no-results" id="noResults">
+              <i class="fa-solid fa-box-open"></i>
+              <h4>Aucun produit trouvé</h4>
+              <p>Essayez un autre terme ou <a href="contact.html" style="color:var(--navy);font-weight:600">contactez-nous</a> pour une recherche sur mesure.</p>
+            </div>
+
+          </div><!-- /products-grid-3 -->
+        </div><!-- /main content -->
+
+      </div><!-- /catalog-layout -->
+    </div>
+  </section>
+
+  <!-- ═══ CUSTOM ORDER CTA ══════════════════ -->
+  <section class="section cta-section" style="padding:4rem 0;">
+    <div class="container">
+      <div class="cta-content">
+        <div class="section-tag light" style="margin:0 auto 1.25rem"><i class="fa-solid fa-wand-magic-sparkles"></i> Produit introuvable ?</div>
+        <h2>Nous sourceons sur commande</h2>
+        <p>Transmettez-nous votre liste de besoins et nous la sourceons en Europe pour vous.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-paper-plane"></i> Envoyer ma liste</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-mark" style="width:36px; height:36px; font-size:1rem;">B</div>
+            <div class="logo-text">
+              <span class="logo-name" style="font-size:1.1rem">BIBAS</span>
+              <span class="logo-tagline">International Business & Supply</span>
+            </div>
+          </a>
+          <p>Votre partenaire de confiance pour le sourcing et l'expédition entre l'Europe et l'Afrique.</p>
+          <div class="f-socials">
+            <a href="#" class="f-soc-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="f-soc-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <div class="f-links">
+            <a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Accueil</a>
+            <a href="services.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Services</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Produits</a>
+            <a href="a-propos.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> À Propos</a>
+            <a href="contact.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Catégories</h5>
+          <div class="f-links">
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Pharmaceutiques</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Cosmétiques</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Alimentaires</a>
+            <a href="produits.html"><i class="fa-solid fa-chevron-right" style="font-size:0.65rem"></i> Équipements</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <div class="f-contact-item"><i class="fa-solid fa-location-dot fi"></i><span>Avenue Louise 54<br>1050 Bruxelles, Belgique</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-envelope fi"></i><span>contact@bibas.eu</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-phone fi"></i><span>+32 465 52 32 32</span></div>
+          <div class="f-contact-item"><i class="fa-solid fa-clock fi"></i><span>Lun–Ven : 9h00 – 18h00</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="f-copy">&copy; 2024 <a href="index.html">BIBAS</a> — Bankon International Business & Supply SPRL. Tous droits réservés.</p>
+        <div class="f-legal">
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Sidebar category filter on products page
+    const catBtns = document.querySelectorAll('.cat-btn');
+    const cards   = document.querySelectorAll('.prod-card[data-category]');
+    const headers = document.querySelectorAll('[data-category-header]');
+    const countEl = document.getElementById('prodCount');
+    const noRes   = document.getElementById('noResults');
+
+    function filterCat(cat) {
+      let visible = 0;
+      cards.forEach(c => {
+        const show = cat === 'all' || c.dataset.category === cat;
+        c.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      headers.forEach(h => {
+        if (cat === 'all' || h.dataset.categoryHeader === cat) h.style.display = '';
+        else h.style.display = 'none';
+      });
+      countEl.textContent = visible;
+      noRes.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterCat(btn.dataset.tab);
+        // Reset search
+        document.getElementById('searchInput').value = '';
+      });
+    });
+
+    // Search filter
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      let visible = 0;
+      cards.forEach(c => {
+        const name = c.querySelector('.prod-name').textContent.toLowerCase();
+        const desc = c.querySelector('.prod-desc').textContent.toLowerCase();
+        const show = name.includes(q) || desc.includes(q);
+        c.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      headers.forEach(h => { h.style.display = ''; });
+      countEl.textContent = visible;
+      noRes.style.display = visible === 0 ? 'block' : 'none';
+      if (q === '') {
+        catBtns.forEach(b => b.classList.remove('active'));
+        catBtns[0].classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
